@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="inh_sale_view_order_envia_form">
+        <field name="name">inh.sale.view.order.envia.form</field>
+        <field name="model">sale.order</field>
+        <field name="priority" eval="999"/>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Envía">
+                    <group>
+                        <group>
+                           <field name="envia_box_id"/>
+                            <field name="envia_box_qty"/>
+                        </group>
+                        <group>
+                            <field name="envia_weight"/>
+                        </group>
+                    </group>
+                    <group string="Envía Log">
+                        <field name="envia_log" nolabel="1"/>
+                    </group>
+                </page>
+            </notebook>
+
+        </field>
+    </record>
+
+
+
+</odoo>

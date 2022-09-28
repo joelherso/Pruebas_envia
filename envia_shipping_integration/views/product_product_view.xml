@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="inh_product_product_dim_form_view">
+        <field name="name">product.product.dim.form.inherited</field>
+        <field name="model">product.product</field>
+        <field name="priority" eval="999"/>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <label for="volume" position="replace"/>
+            <div name="volume" position="replace"/>
+            <label for="weight" position="replace"/>
+            <div name="weight" position="replace"/>
+
+            <notebook position="inside">
+                <label for="volume" invisible="1"/>
+                <page string="Dimensions">
+                    <group>
+                        <group name="product_dim" string="Product Dimensions">
+                            <label for="product_width" string="Dimensions"/>
+                            <div class="o_row">
+                                <field name="product_width" class="oe_inline" placeholder="Width"/>cm
+                                <span class="oe_inline mx-3 font-weight-bold">x</span>
+
+                                <field name="product_length" class="oe_inline" placeholder="Length"/>cm
+                                <span class="oe_inline mx-3 font-weight-bold">x</span>
+
+                                <field name="product_thickness" class="oe_inline" placeholder="Thickness"/>cm
+                            </div>
+
+                            <label for="volume" string="Volume"/>
+                            <div class="o_row">
+                                <field name="volume"/>m<sup>3</sup>
+                            </div>
+                            <label for="weight"/>
+                            <div class="o_row">
+                                <field name="weight"/>
+                                <field name="weight_uom_name"/>
+                            </div>
+                        </group>
+                        <group name="package_dim" string="Box Dimensions">
+                            <label for="box_width" string="Dimensions"/>
+                            <div class="o_row">
+                                <field name="box_width" class="oe_inline" placeholder="Width"/>cm
+                                <span class="oe_inline mx-3 font-weight-bold">x</span>
+
+                                <field name="box_length" class="oe_inline" placeholder="Length"/>cm
+                                <span class="oe_inline mx-3 font-weight-bold">x</span>
+
+                                <field name="box_thickness" class="oe_inline" placeholder="Thickness"/>cm
+                            </div>
+                            <label for="box_volume" string="Box Volume"/>
+                            <div class="o_row">
+                                <field name="box_volume"/>m<sup>3</sup>
+                            </div>
+                            <label for="product_by_box"/>
+                            <div class="o_row">
+                                <field name="product_by_box"/>
+                                <field name="uom_id" readonly="1" options="{'no_open': 1}"/>
+                            </div>
+                            <label for="box_weight"/>
+                            <div class="o_row">
+                                <field name="box_weight"/>
+                                <field name="weight_uom_name"/>
+                            </div>
+                            <label for="total_weight"/>
+                            <div class="o_row">
+                                <field name="total_weight"/>
+                                <field name="weight_uom_name"/>
+                            </div>
+                        </group>
+                    </group>
+                </page>
+            </notebook>
+
+        </field>
+    </record>
+
+    <record id="inh_product_product_dim_view" model="ir.ui.view">
+        <field name="name">inh.product.product.dim</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="lst_price" position="before">
+                <field name="product_by_box" optional="show"/>
+                <field name="box_volume" optional="show"/>
+                <field name="total_weight" optional="show"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

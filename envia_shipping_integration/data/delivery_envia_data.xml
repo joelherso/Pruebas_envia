@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="1">
+    <record id="product_product_delivery_envia_estafeta" model="product.product">
+      <field name="name">ESTAFETA </field>
+      <field name="default_code">EETF</field>
+      <field name="type">service</field>
+      <field name="categ_id" ref="delivery.product_category_deliveries"/>
+      <field name="sale_ok" eval="False"/>
+      <field name="purchase_ok" eval="False"/>
+      <field name="list_price">0.0</field>
+      <field name="invoice_policy">order</field>
+    </record>
+    <record id="product_product_delivery_envia_scm" model="product.product">
+      <field name="name">SCM (ENVIA)</field>
+      <field name="default_code">ESCM</field>
+      <field name="type">service</field>
+      <field name="categ_id" ref="delivery.product_category_deliveries"/>
+      <field name="sale_ok" eval="False"/>
+      <field name="purchase_ok" eval="False"/>
+      <field name="list_price">0.0</field>
+      <field name="invoice_policy">order</field>
+    </record>
+    <record id="product_product_delivery_envia_exp" model="product.product">
+      <field name="name">PAQUETE EXPRESS (ENVIA)</field>
+      <field name="default_code">EPEX</field>
+      <field name="type">service</field>
+      <field name="categ_id" ref="delivery.product_category_deliveries"/>
+      <field name="sale_ok" eval="False"/>
+      <field name="purchase_ok" eval="False"/>
+      <field name="list_price">0.0</field>
+      <field name="invoice_policy">order</field>
+    </record>
+    <record id="product_product_delivery_envia_fedex" model="product.product">
+      <field name="name">FEDEX (ENVIA)</field>
+      <field name="default_code">EFED</field>
+      <field name="type">service</field>
+      <field name="categ_id" ref="delivery.product_category_deliveries"/>
+      <field name="sale_ok" eval="False"/>
+      <field name="purchase_ok" eval="False"/>
+      <field name="list_price">0.0</field>
+      <field name="invoice_policy">order</field>
+    </record>
+    <record id="product_product_delivery_envia_dhl" model="product.product">
+      <field name="name">DHL (ENVIA)</field>
+      <field name="default_code">EDHL</field>
+      <field name="type">service</field>
+      <field name="categ_id" ref="delivery.product_category_deliveries"/>
+      <field name="sale_ok" eval="False"/>
+      <field name="purchase_ok" eval="False"/>
+      <field name="list_price">0.0</field>
+      <field name="invoice_policy">order</field>
+    </record>
+
+
+    <record id="delivery_carrier_envia_estafeta" model="delivery.carrier">
+        <field name="name">Estafeta</field>
+        <field name="product_id" ref="envia_shipping_integration.product_product_delivery_envia_estafeta"/>
+        <field name="delivery_type">estafeta</field>
+    </record>
+    <record id="delivery_carrier_envia_scm" model="delivery.carrier">
+        <field name="name">SCM</field>
+        <field name="product_id" ref="envia_shipping_integration.product_product_delivery_envia_scm"/>
+        <field name="delivery_type">scm</field>
+    </record>
+    <record id="delivery_carrier_envia_express" model="delivery.carrier">
+        <field name="name">Paquete Express</field>
+        <field name="product_id" ref="envia_shipping_integration.product_product_delivery_envia_exp"/>
+        <field name="delivery_type">paquete_express</field>
+    </record>
+    <record id="delivery_carrier_envia_fedex" model="delivery.carrier">
+        <field name="name">FedEx</field>
+        <field name="product_id" ref="envia_shipping_integration.product_product_delivery_envia_fedex"/>
+        <field name="delivery_type">fedex</field>
+    </record>
+    <record id="delivery_carrier_envia_dhl" model="delivery.carrier">
+        <field name="name">DHL</field>
+        <field name="product_id" ref="envia_shipping_integration.product_product_delivery_envia_dhl"/>
+        <field name="delivery_type">dhl</field>
+    </record>
+
+</data>
+</odoo>
